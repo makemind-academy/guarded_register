@@ -1,0 +1,397 @@
+{
+  "type": "page",
+  "metadata": {
+    "title": "Register"
+  },
+  "onInit": {
+    "type": "tool",
+    "tool": "register.state",
+    "params": {}
+  },
+  "state": {
+    "initial": {
+      "role": "",
+      "roleColor": "#6b7280",
+      "sales": 0,
+      "total": "",
+      "voided": 0,
+      "refused": 0,
+      "refusedTool": "",
+      "refusedNote": "",
+      "guardRule": "",
+      "notice": ""
+    }
+  },
+  "content": {
+    "type": "container",
+    "decoration": {
+      "color": "{{theme.color.surfaceContainerHighest}}"
+    },
+    "child": {
+      "type": "linear",
+      "direction": "vertical",
+      "children": [
+        {
+          "type": "container",
+          "padding": {
+            "left": 22,
+            "right": 22,
+            "top": 20,
+            "bottom": 16
+          },
+          "decoration": {
+            "color": "{{theme.color.surface}}",
+            "border": {
+              "bottom": true,
+              "color": "{{theme.color.outline}}",
+              "width": 1
+            }
+          },
+          "child": {
+            "type": "linear",
+            "direction": "horizontal",
+            "crossAxisAlignment": "center",
+            "children": [
+              {
+                "type": "linear",
+                "direction": "vertical",
+                "children": [
+                  {
+                    "type": "text",
+                    "content": "LANE 3 · SIGNED IN AS",
+                    "style": {
+                      "fontSize": 12,
+                      "color": "{{theme.color.onSurfaceVariant}}",
+                      "letterSpacing": 2.0
+                    }
+                  },
+                  {
+                    "type": "text",
+                    "content": "{{role}}",
+                    "style": {
+                      "fontSize": 21,
+                      "color": "{{roleColor}}",
+                      "fontWeight": "bold"
+                    }
+                  }
+                ],
+                "gap": 4
+              },
+              {
+                "type": "spacer"
+              },
+              {
+                "type": "linear",
+                "direction": "vertical",
+                "children": [
+                  {
+                    "type": "text",
+                    "content": "TAKINGS",
+                    "style": {
+                      "fontSize": 11,
+                      "color": "{{theme.color.onSurfaceVariant}}",
+                      "letterSpacing": 1.6
+                    }
+                  },
+                  {
+                    "type": "text",
+                    "content": "{{total}}",
+                    "style": {
+                      "fontSize": 26,
+                      "color": "{{theme.color.onSurface}}",
+                      "fontFamily": "JetBrainsMono"
+                    }
+                  }
+                ],
+                "gap": 4,
+                "crossAxisAlignment": "end"
+              }
+            ]
+          }
+        },
+        {
+          "type": "container",
+          "padding": {
+            "left": 24,
+            "right": 24,
+            "top": 10,
+            "bottom": 4
+          },
+          "child": {
+            "type": "linear",
+            "direction": "horizontal",
+            "crossAxisAlignment": "center",
+            "children": [
+              {
+                "type": "button",
+                "label": "Ring up $9.00",
+                "variant": "filled",
+                "onTap": {
+                  "type": "tool",
+                  "tool": "sale.ring",
+                  "params": {
+                    "amount": 900
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "container",
+          "padding": {
+            "left": 22,
+            "right": 22,
+            "top": 16,
+            "bottom": 8
+          },
+          "child": {
+            "type": "container",
+            "padding": {
+              "all": 18
+            },
+            "decoration": {
+              "color": "{{theme.color.surface}}",
+              "borderRadius": 14,
+              "border": {
+                "color": "{{theme.color.outline}}",
+                "width": 1
+              }
+            },
+            "child": {
+              "type": "linear",
+              "direction": "vertical",
+              "children": [
+                {
+                  "type": "linear",
+                  "direction": "horizontal",
+                  "crossAxisAlignment": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "content": "THIS SESSION",
+                      "style": {
+                        "fontSize": 11,
+                        "color": "{{theme.color.onSurfaceVariant}}",
+                        "letterSpacing": 1.6
+                      }
+                    },
+                    {
+                      "type": "spacer"
+                    },
+                    {
+                      "type": "text",
+                      "content": "{{sales}} sales",
+                      "style": {
+                        "fontSize": 14,
+                        "color": "{{theme.color.onSurfaceVariant}}",
+                        "fontFamily": "JetBrainsMono"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "linear",
+                  "direction": "horizontal",
+                  "crossAxisAlignment": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "content": "Voided",
+                      "style": {
+                        "fontSize": 13,
+                        "color": "{{theme.color.onSurfaceVariant}}"
+                      }
+                    },
+                    {
+                      "type": "spacer"
+                    },
+                    {
+                      "type": "text",
+                      "content": "{{voided}}",
+                      "style": {
+                        "fontSize": 15,
+                        "color": "{{theme.color.onSurface}}",
+                        "fontFamily": "JetBrainsMono"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "linear",
+                  "direction": "horizontal",
+                  "crossAxisAlignment": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "content": "Refused by the till",
+                      "style": {
+                        "fontSize": 13,
+                        "color": "{{theme.color.onSurfaceVariant}}"
+                      }
+                    },
+                    {
+                      "type": "spacer"
+                    },
+                    {
+                      "type": "text",
+                      "content": "{{refused}}",
+                      "style": {
+                        "fontSize": 15,
+                        "color": "{{theme.color.warning}}",
+                        "fontFamily": "JetBrainsMono"
+                      }
+                    }
+                  ]
+                }
+              ],
+              "gap": 10
+            }
+          }
+        },
+        {
+          "type": "container",
+          "padding": {
+            "left": 22,
+            "right": 22,
+            "top": 0,
+            "bottom": 8
+          },
+          "child": {
+            "type": "container",
+            "padding": {
+              "all": 18
+            },
+            "decoration": {
+              "color": "{{theme.color.surface}}",
+              "borderRadius": 14,
+              "border": {
+                "color": "{{theme.color.outline}}",
+                "width": 1
+              }
+            },
+            "child": {
+              "type": "linear",
+              "direction": "vertical",
+              "children": [
+                {
+                  "type": "linear",
+                  "direction": "horizontal",
+                  "crossAxisAlignment": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "content": "ACTIONS",
+                      "style": {
+                        "fontSize": 11,
+                        "color": "{{theme.color.onSurfaceVariant}}",
+                        "letterSpacing": 1.6
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "linear",
+                  "direction": "horizontal",
+                  "crossAxisAlignment": "center",
+                  "children": [
+                    {
+                      "type": "expanded",
+                      "child": {
+                        "type": "button",
+                        "label": "Void last sale",
+                        "variant": "outlined",
+                        "onTap": {
+                          "type": "tool",
+                          "tool": "sale.void",
+                          "params": {}
+                        }
+                      }
+                    },
+                    {
+                      "type": "expanded",
+                      "child": {
+                        "type": "container",
+                        "padding": {
+                          "left": 10,
+                          "right": 0,
+                          "top": 0,
+                          "bottom": 0
+                        },
+                        "child": {
+                          "type": "button",
+                          "label": "Open drawer",
+                          "variant": "outlined",
+                          "onTap": {
+                            "type": "tool",
+                            "tool": "drawer.open",
+                            "params": {}
+                          }
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "linear",
+                  "direction": "horizontal",
+                  "crossAxisAlignment": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "content": "{{refusedNote}}",
+                      "style": {
+                        "fontSize": 13,
+                        "color": "{{theme.color.warning}}"
+                      }
+                    }
+                  ]
+                }
+              ],
+              "gap": 12
+            }
+          }
+        },
+        {
+          "type": "spacer"
+        },
+        {
+          "type": "container",
+          "padding": {
+            "left": 22,
+            "right": 22,
+            "top": 4,
+            "bottom": 18
+          },
+          "child": {
+            "type": "linear",
+            "direction": "horizontal",
+            "crossAxisAlignment": "center",
+            "children": [
+              {
+                "type": "text",
+                "content": "{{guardRule}}",
+                "style": {
+                  "fontSize": 13,
+                  "color": "{{theme.color.onSurfaceVariant}}"
+                }
+              },
+              {
+                "type": "spacer"
+              },
+              {
+                "type": "text",
+                "content": "{{notice}}",
+                "style": {
+                  "fontSize": 13,
+                  "color": "{{theme.color.primary}}"
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "crossAxisAlignment": "stretch"
+    }
+  }
+}

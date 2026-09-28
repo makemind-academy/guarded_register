@@ -1,0 +1,73 @@
+{
+  "type": "application",
+  "title": "Register",
+  "version": "1.0.0",
+  "initialRoute": "/",
+  "routes": {
+    "/": "ui://pages/register"
+  },
+  "theme": {
+    "mode": "light",
+    "color": {
+      "primary": "#1d4ed8",
+      "onPrimary": "#ffffff",
+      "primaryContainer": "#dce7fd",
+      "onPrimaryContainer": "#0b2461",
+      "surface": "#ffffff",
+      "onSurface": "#111725",
+      "surfaceContainerHighest": "#f3f5fa",
+      "onSurfaceVariant": "#7c8496",
+      "outline": "#e2e6f0",
+      "outlineVariant": "#e2e6f0",
+      "error": "#b3261e",
+      "onError": "#ffffff",
+      "warning": "#a4620a",
+      "onWarning": "#ffffff",
+      "inverseSurface": "#111725",
+      "inverseOnSurface": "#ffffff"
+    },
+    "spacing": {
+      "xxs": 2,
+      "xs": 4,
+      "sm": 8,
+      "md": 16,
+      "lg": 24,
+      "xl": 32,
+      "2xl": 48
+    },
+    "shape": {
+      "none": 0,
+      "extraSmall": 4,
+      "small": 8,
+      "medium": 12,
+      "large": 16,
+      "extraLarge": 28,
+      "full": 999
+    },
+    "fonts": {
+      "JetBrainsMono": {
+        "source": "asset",
+        "family": "JetBrainsMono"
+      }
+    }
+  },
+  "state": {
+    "initial": {
+      "role": "",
+      "roleColor": "#6b7280",
+      "sales": 0,
+      "total": "",
+      "voided": 0,
+      "refused": 0,
+      "refusedTool": "",
+      "refusedNote": "",
+      "guardRule": "",
+      "notice": ""
+    }
+  },
+  "onInit": {
+    "type": "tool",
+    "tool": "register.state",
+    "params": {}
+  }
+}
